@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dierks Bentley Organization</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2A4A;
+    --gold: #B8955A;
+    --gold-light: #F5EDD8;
+    --cream: #FAF8F4;
+    --white: #FFFFFF;
+    --text: #1B2A4A;
+    --muted: #6B7280;
+    --border: #E5DDD0;
+    --section-pad: 80px 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .btn-donate-nav {
+    background: var(--gold);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+
+  .btn-donate-nav:hover { background: #9c7d48; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 40px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E") repeat;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #9c7d48; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.06); }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 32px;
+    text-align: center;
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  /* SECTIONS */
+  section { padding: var(--section-pad); }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* MISSION */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .mission-text p {
+    font-size: 16px;
+    color: #3D4A5C;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .mission-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pillar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 20px 24px;
+  }
+
+  .pillar h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .pillar p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* HISTORY / TIMELINE */
+  .history-bg { background: var(--white); }
+
+  .timeline {
+    margin-top: 56px;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 44px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+  }
+
+  .timeline-year {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .timeline-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+
+  .timeline-amount {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--gold-light);
+    color: #7A5E2A;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* PROGRAMS */
+  .programs-bg { background: var(--cream); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .program-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+
+  .program-card:hover { border-color: var(--gold); }
+
+  .program-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gold-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .program-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .program-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.72;
+    margin-bottom: 16px;
+  }
+
+  .program-raised {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  /* DONATION IMPACT */
+  .impact-bg { background: var(--navy); color: var(--white); }
+
+  .impact-bg .section-heading { color: var(--white); }
+  .impact-bg .section-sub { color: rgba(255,255,255,0.65); }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .impact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .impact-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .impact-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+  }
+
+  /* GALLERY */
+  .gallery-bg { background: var(--white); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 220px 220px;
+    gap: 14px;
+    margin-top: 48px;
+  }
+
+  .gallery-grid .g-large { grid-column: span 2; grid-row: span 2; }
+  .gallery-grid .g-small { grid-column: span 2; grid-row: span 1; }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(27,42,74,0.88));
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 28px 16px 12px;
+  }
+
+  .gallery-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* PROOF OF IMPACT */
+  .proof-bg { background: var(--cream); }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .proof-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .proof-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-body { padding: 20px 22px; }
+
+  .proof-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #7A5E2A;
+    background: var(--gold-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .proof-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .proof-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .doc-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .doc-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    background: var(--gold-light);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .doc-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .doc-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .doc-link {
+    font-size: 12.5px;
+    color: var(--gold);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  .disclosure-banner {
+    margin-top: 32px;
+    background: var(--white);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* DONORS */
+  .donors-bg { background: var(--white); }
+
+  .donors-table-wrap {
+    margin-top: 40px;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  tr:hover td { background: var(--cream); }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .badge-gold { background: var(--gold-light); color: #7A5E2A; }
+  .badge-blue { background: #EBF0F9; color: #1B2A4A; }
+  .badge-green { background: #E6F4EC; color: #1A6335; }
+
+  /* DONATE FORM */
+  .donate-bg { background: var(--cream); }
+
+  .donate-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 48px;
+    margin-top: 48px;
+  }
+
+  .donate-inner h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .donate-inner p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .amount-btn {
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .amount-btn:hover, .amount-btn.active {
+    border-color: var(--gold);
+    background: var(--gold-light);
+    color: #7A5E2A;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus { border-color: var(--gold); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-donate-full {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-donate-full:hover { background: #243660; }
+
+  .secure-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    padding: 56px 40px 32px;
+  }
+
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand .nav-name { color: var(--white); font-size: 18px; }
+
+  .footer-brand p {
+    font-size: 13px;
+    margin-top: 12px;
+    line-height: 1.75;
+    max-width: 280px;
+  }
+
+  .footer-col h5 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li { margin-bottom: 10px; }
+
+  .footer-col ul li a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    max-width: 1080px;
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ein-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Inter', monospace;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 70px 24px 60px; }
+    .container { padding: 0 24px; }
+    .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .stats-strip { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .donate-inner { padding: 32px 24px; }
+    footer { padding: 40px 24px 24px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px 160px; }
+    .gallery-grid .g-large { grid-column: span 2; grid-row: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">DB</div>
+    <span class="nav-name">Dierks Bentley Organization</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#history">Our History</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#proof">Proof of Impact</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#donors">Honor Roll</a></li>
+  </ul>
+  <a href="#donate" class="btn-donate-nav">Donate Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Established 2008 &nbsp;·&nbsp; Nashville, Tennessee</p>
+  <h1>Building <em>Stronger</em><br/>Communities Through<br/>Music &amp; Purpose</h1>
+  <p class="hero-sub">The Dierks Bentley Organization works to uplift veterans, rural youth, and families in need through education, arts, and emergency relief programs across America.</p>
+  <div class="hero-actions">
+    <a href="#donate" class="btn-primary">Make a Donation</a>
+    <a href="#mission" class="btn-outline">Learn Our Story</a>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-number">$42M+</div>
+    <div class="stat-label">Total Funds Raised</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">180K+</div>
+    <div class="stat-label">Lives Impacted</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">38</div>
+    <div class="stat-label">U.S. States Reached</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">210+</div>
+    <div class="stat-label">Community Partners</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">17 yrs</div>
+    <div class="stat-label">Of Service</div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission-bg" id="mission">
+  <div class="container">
+    <p class="section-label">Who We Are</p>
+    <h2 class="section-heading">A Mission Rooted in <br/>Faith, Music, &amp; Service</h2>
+    <div class="mission-grid">
+      <div class="mission-text">
+        <p>The Dierks Bentley Organization was born from a simple belief: that music can move people, and that those who are moved have a responsibility to give back. Founded in 2008, we have grown from a grassroots effort into a nationally recognized nonprofit with programs serving veterans, underserved youth, and disaster-affected families across the United States.</p>
+        <p>Every initiative we run ties back to three core values — dignity, community, and access. We believe that where you were born should never determine what you are able to become, and that no one who has served this country should face hardship without a network of support.</p>
+        <p>Guided by our board of directors and a team of passionate staff and volunteers, we are committed to transparent stewardship of every dollar entrusted to us. We hold a 4-star rating from Charity Navigator and have maintained a program expense ratio above 85% every year since our founding.</p>
+      </div>
+      <div class="mission-pillars">
+        <div class="pillar">
+          <h4>🎖 Veterans First</h4>
+          <p>Emergency housing, mental health access, and career placement services for veterans transitioning from active duty back into civilian life.</p>
+        </div>
+        <div class="pillar">
+          <h4>🎵 Music Education</h4>
+          <p>Funding instruments, instruction, and after-school music programs in under-resourced schools, giving youth a creative voice of their own.</p>
+        </div>
+        <div class="pillar">
+          <h4>🌾 Rural Relief</h4>
+          <p>Food security, mobile health clinics, and disaster response for rural communities that are often overlooked by mainstream aid networks.</p>
+        </div>
+        <div class="pillar">
+          <h4>🎓 Scholarship Fund</h4>
+          <p>Merit and need-based college scholarships awarded annually to first-generation students from qualifying households across 12 states.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY / TIMELINE -->
+<section class="history-bg" id="history">
+  <div class="container">
+    <p class="section-label">Our History</p>
+    <h2 class="section-heading">Fifteen Years of Giving Back</h2>
+    <p class="section-sub">From a single benefit concert in Nashville to a multi-program national nonprofit, here is how the Dierks Bentley Organization has grown.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-year">2008 — Founding Year</p>
+        <p class="timeline-title">A Benefit Concert That Started It All</p>
+        <p class="timeline-desc">After a tour stop in Nashville brought Dierks Bentley face to face with families left homeless by a tornado in Hendersonville, Tennessee, he organized a benefit concert at the Ryman Auditorium. The event raised funds and sparked a desire to formalize the giving. The Dierks Bentley Organization was incorporated as a 501(c)(3) that same October.</p>
+        <span class="timeline-amount">$380,000 raised in Year 1</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2010</p>
+        <p class="timeline-title">Veterans Outreach Program Launches</p>
+        <p class="timeline-desc">Partnering with the Wounded Warrior Project and local VA chapters in Tennessee and Arizona, the organization launched its first structured Veterans Outreach Program, providing emergency housing vouchers and peer support to more than 600 veterans in the first year.</p>
+        <span class="timeline-amount">$1.2M directed to veterans services</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2013</p>
+        <p class="timeline-title">Music in Schools Initiative</p>
+        <p class="timeline-desc">After years of hearing from teachers about shrinking arts budgets, we launched Music in Schools — placing instruments, instructors, and after-school programs in 47 public schools across rural Kentucky, Tennessee, and West Virginia. By end of year, over 3,200 students had access to free music instruction for the first time.</p>
+        <span class="timeline-amount">$2.7M in grants awarded</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2016</p>
+        <p class="timeline-title">The Hurricane Relief Response</p>
+        <p class="timeline-desc">When Hurricane Matthew devastated coastal communities in Florida, Georgia, and the Carolinas, we mobilized within 48 hours. Working alongside local emergency management agencies, we deployed mobile kitchens, emergency supply kits, and short-term housing subsidies to over 4,100 displaced families.</p>
+        <span class="timeline-amount">$4.1M in emergency relief deployed</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2018</p>
+        <p class="timeline-title">A Decade of Giving — $20M Milestone</p>
+        <p class="timeline-desc">At our 10-year gala in Nashville, the DBO crossed the $20 million cumulative donation milestone. The event featured performances from more than 20 artists and drew philanthropic partners from across the country. That year, the organization expanded operations to 30 U.S. states.</p>
+        <span class="timeline-amount">$20M cumulative milestone reached</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2020</p>
+        <p class="timeline-title">COVID-19 Emergency Fund</p>
+        <p class="timeline-desc">In the first months of the pandemic, we redirected $3.8 million to an Emergency Stability Fund supporting furloughed music industry workers, food banks in underserved rural counties, and telehealth access for veterans who could not travel to VA facilities.</p>
+        <span class="timeline-amount">$3.8M emergency fund deployed</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2022</p>
+        <p class="timeline-title">Scholarship Endowment Established</p>
+        <p class="timeline-desc">A major gift of $5 million from an anonymous donor allowed the DBO to establish the Bentley Futures Scholarship Endowment — a permanent fund awarding renewable scholarships to first-generation college students in 12 states. The inaugural class of 80 scholars began their studies in the fall of 2022.</p>
+        <span class="timeline-amount">80 scholars, $5M endowment</span>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">2024</p>
+        <p class="timeline-title">Expanding West — Pacific Programs</p>
+        <p class="timeline-desc">Building on our success in the South and Midwest, the DBO opened its first Western regional office in Phoenix, Arizona, extending our Veterans First and rural relief programs to underserved communities in Nevada, New Mexico, and California's Central Valley. We also launched a bilingual resource center serving Spanish-speaking families.</p>
+        <span class="timeline-amount">12,000 new beneficiaries in Year 1</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-bg" id="programs">
+  <div class="container">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-heading">Active Programs &amp; Initiatives</h2>
+    <p class="section-sub">Each program is designed to address a specific, measurable need — with clear outcomes, community partners, and annual audits to ensure accountability.</p>
+
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-icon">🎖</div>
+        <h3>Veterans First</h3>
+        <p>Emergency housing, mental health referrals, and employment support for veterans transitioning to civilian life. Serving 9 states with 42 active partner organizations.</p>
+        <p class="program-raised">$11.4M raised to date · 23,000 veterans served</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🎵</div>
+        <h3>Music in Schools</h3>
+        <p>Free instruments and professional instruction for students in underfunded rural public schools. Programs run in 140+ schools across 8 states.</p>
+        <p class="program-raised">$8.2M raised to date · 47,000 students reached</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🌾</div>
+        <h3>Rural Relief &amp; Food Access</h3>
+        <p>Mobile food pantries, emergency supply distribution, and disaster response coordinated with FEMA and county emergency services in rural counties.</p>
+        <p class="program-raised">$9.7M raised to date · 58,000 families helped</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🎓</div>
+        <h3>Bentley Futures Scholarship</h3>
+        <p>Renewable college scholarships for first-generation students demonstrating financial need and community leadership. Up to $8,000 per year, per scholar.</p>
+        <p class="program-raised">$7.1M raised to date · 340 scholars funded</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🏥</div>
+        <h3>Mobile Health Clinics</h3>
+        <p>Free preventive care, mental health screenings, and dental services deployed to rural towns that lack consistent access to healthcare professionals.</p>
+        <p class="program-raised">$3.8M raised to date · 31,000 patients served</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🆘</div>
+        <h3>Disaster Emergency Fund</h3>
+        <p>A standing reserve activated within 48 hours of major declared disasters to provide immediate housing vouchers, meals, and supply kits to displaced families.</p>
+        <p class="program-raised">$5.9M raised to date · 19 disaster responses</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-bg" id="gallery">
+  <div class="container">
+    <p class="section-label">In The Field</p>
+    <h2 class="section-heading">Where Your Donation Goes</h2>
+    <p class="section-sub">A look at the children's homes, schools, and relief sites our partner programs support on the ground.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item g-large">
+        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=600&fit=crop" alt="Children at a partner children's home" />
+        <div class="gallery-caption">Partner children's home, East Tennessee region</div>
+      </div>
+      <div class="gallery-item g-small">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=300&fit=crop" alt="Volunteers distributing food and supplies" />
+        <div class="gallery-caption">Rural Relief food distribution day</div>
+      </div>
+      <div class="gallery-item g-small">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=300&fit=crop" alt="Classroom with donated musical instruments" />
+        <div class="gallery-caption">Music in Schools classroom, Kentucky</div>
+      </div>
+      <div class="gallery-item g-small">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&h=300&fit=crop" alt="Children playing outside a community shelter" />
+        <div class="gallery-caption">Community shelter playground, funded 2023</div>
+      </div>
+      <div class="gallery-item g-small">
+        <img src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?w=600&h=300&fit=crop" alt="Volunteers handing out supply kits to a family" />
+        <div class="gallery-caption">Emergency supply kit handoff, disaster response</div>
+      </div>
+    </div>
+    <p class="gallery-note">Photos are representative of program settings and partner sites. Stock and illustrative imagery is used here in place of dated field photography; a production version of this site would feature consented, on-site photography from named partner locations.</p>
+  </div>
+</section>
+
+<!-- PROOF OF IMPACT -->
+<section class="proof-bg" id="proof">
+  <div class="container">
+    <p class="section-label">Accountability</p>
+    <h2 class="section-heading">Proof of Impact</h2>
+    <p class="section-sub">We back every dollar with documentation. Below is a sample of the records, partner acknowledgements, and verification standards we maintain.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=500&h=300&fit=crop" alt="Volunteers and partner staff at a relief distribution site" />
+        <div class="proof-body">
+          <span class="proof-tag">Site visit, 2024</span>
+          <h4>Rural Relief — Hendersonville County</h4>
+          <p>Quarterly site visit confirming distribution of 1,200 emergency food kits, verified by county emergency services coordinator.</p>
+        </div>
+      </div>
+      <div class="proof-card">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&h=300&fit=crop" alt="Children's home renovation supported by donations" />
+        <div class="proof-body">
+          <span class="proof-tag">Capital grant, 2023</span>
+          <h4>Children's Home Renovation Grant</h4>
+          <p>$240,000 grant covered dormitory repairs and a new kitchen for a partner children's home serving 64 resident youth.</p>
+        </div>
+      </div>
+      <div class="proof-card">
+        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=500&h=300&fit=crop" alt="Students receiving instruments through the music program" />
+        <div class="proof-body">
+          <span class="proof-tag">Program audit, 2024</span>
+          <h4>Music in Schools — Instrument Tracking</h4>
+          <p>Independently audited inventory log confirms 1,840 instruments delivered and in active classroom use across 9 districts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-grid" style="margin-top: 24px;">
+      <div class="doc-card">
+        <div class="doc-icon">📄</div>
+        <div>
+          <h4>Annual Report (2024)</h4>
+          <p>Full financial breakdown, program outcomes, and independent auditor's statement.</p>
+          <a href="#" class="doc-link">View report →</a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">⭐</div>
+        <div>
+          <h4>Charity Navigator Rating</h4>
+          <p>4-star rating, 92/100 accountability and transparency score.</p>
+          <a href="#" class="doc-link">View profile →</a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">🧾</div>
+        <div>
+          <h4>Form 990 Filings</h4>
+          <p>IRS nonprofit tax filings for fiscal years 2018 through 2024, publicly archived.</p>
+          <a href="#" class="doc-link">View filings →</a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">✍️</div>
+        <div>
+          <h4>Partner Acknowledgement Letters</h4>
+          <p>Signed letters from 40+ partner agencies confirming receipt and use of funds.</p>
+          <a href="#" class="doc-link">View letters →</a>
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-bg" id="impact">
+  <div class="container">
+    <p class="section-label">Your Dollar at Work</p>
+    <h2 class="section-heading">What Your Donation Does</h2>
+    <p class="section-sub">Every gift is put to work. Here's what common donation amounts make possible in our programs right now.</p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-amount">$25</div>
+        <div class="impact-desc">Provides one week of instrument rental for a child in our Music in Schools program</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$75</div>
+        <div class="impact-desc">Stocks one emergency supply kit for a family displaced by a natural disaster</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$150</div>
+        <div class="impact-desc">Covers a veteran's first month of transitional housing subsidy under Veterans First</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$500</div>
+        <div class="impact-desc">Funds a full semester of college for one Bentley Futures scholarship recipient</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$1,000</div>
+        <div class="impact-desc">Brings one Mobile Health Clinic day to a rural community — serving up to 60 patients</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$5,000</div>
+        <div class="impact-desc">Equips an entire classroom of 30 students with instruments for one full school year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONOR ROLL -->
+<section class="donors-bg" id="donors">
+  <div class="container">
+    <p class="section-label">Donor Honor Roll</p>
+    <h2 class="section-heading">History of Notable Contributions</h2>
+    <p class="section-sub">We are deeply grateful to the individuals, foundations, and corporate partners whose generosity has made our work possible. The following represents a selection of landmark gifts since our founding.</p>
+
+    <div class="donors-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Donor / Partner</th>
+            <th>Year</th>
+            <th>Amount</th>
+            <th>Program Directed</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Anonymous Benefactor</strong></td>
+            <td>2022</td>
+            <td>$5,000,000</td>
+            <td>Bentley Futures Scholarship Endowment</td>
+            <td><span class="badge badge-gold">Founding Patron</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dierks Bentley (Personal Gift)</strong></td>
+            <td>2018</td>
+            <td>$500,000</td>
+            <td>General Operations &amp; Veterans First</td>
+            <td><span class="badge badge-gold">Founding Patron</span></td>
+          </tr>
+          <tr>
+            <td><strong>Warner Music Group</strong></td>
+            <td>2020</td>
+            <td>$1,800,000</td>
+            <td>COVID-19 Emergency Stability Fund</td>
+            <td><span class="badge badge-blue">Diamond Partner</span></td>
+          </tr>
+          <tr>
+            <td><strong>The Kresge Foundation</strong></td>
+            <td>2019</td>
+            <td>$1,500,000</td>
+            <td>Music in Schools (3-year grant)</td>
+            <td><span class="badge badge-blue">Diamond Partner</span></td>
+          </tr>
+          <tr>
+            <td><strong>Walmart Foundation</strong></td>
+            <td>2016</td>
+            <td>$1,200,000</td>
+            <td>Hurricane Matthew Rural Relief</td>
+            <td><span class="badge badge-blue">Diamond Partner</span></td>
+          </tr>
+          <tr>
+            <td><strong>Marcus &amp; Bonnie Whitfield</strong></td>
+            <td>2021</td>
+            <td>$900,000</td>
+            <td>Veterans First — Arizona Region</td>
+            <td><span class="badge badge-green">Platinum Donor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Country Music Association</strong></td>
+            <td>2023</td>
+            <td>$750,000</td>
+            <td>Music in Schools Expansion</td>
+            <td><span class="badge badge-green">Platinum Donor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dolly Parton Imagination Library</strong></td>
+            <td>2023</td>
+            <td>$600,000</td>
+            <td>Rural Literacy &amp; Education Access</td>
+            <td><span class="badge badge-green">Platinum Donor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Caterpillar Foundation</strong></td>
+            <td>2024</td>
+            <td>$550,000</td>
+            <td>Mobile Health Clinics — Western Region</td>
+            <td><span class="badge badge-green">Platinum Donor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tennessee Volunteers Fan Fund</strong></td>
+            <td>2022</td>
+            <td>$480,000</td>
+            <td>Disaster Emergency Fund Reserve</td>
+            <td><span class="badge badge-green">Platinum Donor</span></td>
+          </tr>
+           <tr>
+            <td><strong>Dierks Bentley (Personal Gift)</strong></td>
+            <td>2025</td>
+            <td>$1.260,000</td>
+            <td>General Operations &amp; Hospital Care</td>
+            <td><span class="badge badge-gold">Founding Patron</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE FORM -->
+<section class="donate-bg" id="donate">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-label">Give Today</p>
+      <h2 class="section-heading">Make a Difference</h2>
+      <p class="section-sub" style="margin: 0 auto;">Your donation is tax-deductible and goes directly to the programs that need it most. Join over 180,000 lives already changed.</p>
+    </div>
+
+    <div class="donate-inner">
+      <h3>Choose Your Gift</h3>
+      <p>Select an amount or enter a custom donation below.</p>
+
+      <div class="amount-grid">
+        <div class="amount-btn" onclick="selectAmount(this, '$25')">$25</div>
+        <div class="amount-btn active" onclick="selectAmount(this, '$75')">$75</div>
+        <div class="amount-btn" onclick="selectAmount(this, '$150')">$150</div>
+        <div class="amount-btn" onclick="selectAmount(this, '$500')">$500</div>
+      </div>
+
+      <div class="form-group">
+        <label>Custom Amount</label>
+        <input type="number" placeholder="Enter amount in USD" min="1" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="•••• •••• •••• ••••" maxlength="19" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiry</label>
+          <input type="text" placeholder="MM / YY" maxlength="7" />
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="text" placeholder="•••" maxlength="4" />
+        </div>
+      </div>
+
+      <button class="btn-donate-full" onclick="handleDonate()">Donate Securely</button>
+      <p class="secure-note">🔒 &nbsp;256-bit SSL encryption &nbsp;·&nbsp; 501(c)(3) tax-exempt &nbsp;·&nbsp; EIN 26-1847203</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand" style="margin-bottom: 12px;">
+        <div class="nav-logo">DB</div>
+        <span class="nav-name">Dierks Bentley Organization</span>
+      </div>
+      <p>Building stronger communities through music, service, and purpose since 2008. A nationally accredited 501(c)(3) nonprofit headquartered in Nashville, Tennessee.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Programs</h5>
+      <ul>
+        <li><a href="#">Veterans First</a></li>
+        <li><a href="#">Music in Schools</a></li>
+        <li><a href="#">Rural Relief</a></li>
+        <li><a href="#">Scholarship Fund</a></li>
+        <li><a href="#">Mobile Health</a></li>
+        <li><a href="#">Disaster Fund</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Organization</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Board of Directors</a></li>
+        <li><a href="#">Annual Reports</a></li>
+        <li><a href="#">Press &amp; Media</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get Involved</h5>
+      <ul>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Corporate Partners</a></li>
+        <li><a href="#">Host an Event</a></li>
+        <li><a href="#">Apply for Aid</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Dierks Bentley Organization. All rights reserved. &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Terms of Use</span>
+    <span class="ein-badge">EIN 26-1847203</span>
+  </div>
+</footer>
+
+<script>
+  function selectAmount(el, amt) {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function handleDonate() {
+    alert('Thank you for your generous gift!\n\nIn a live site, this would process your payment securely and send a tax receipt to your email.');
+  }
+
+  // Subtle scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.program-card, .impact-card, .timeline-item, .pillar, .gallery-item, .proof-card, .doc-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
